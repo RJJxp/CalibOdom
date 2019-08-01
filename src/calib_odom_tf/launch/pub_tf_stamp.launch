@@ -1,0 +1,9 @@
+<launch>
+  <arg name="topic_in"              default="/tf"/>
+  <arg name="topic_out"             default="/test/tf_stamp"/>
+
+  <node pkg="calib_odom_tf" type="pub_tf_stamp_node" name="pub_tf_stramp_rjp" output="screen">
+    <param name="topic_in"              type="str"      value="$(arg topic_in)"/>
+    <param name="topic_out"             type="str"      value="$(arg topic_out)"/>
+  </node>
+</launch>

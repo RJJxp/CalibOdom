@@ -1,0 +1,22 @@
+<launch>
+  <!-- for the input and output -->
+  <arg name="topic_odom_in"                     default="/raccoon/chassis/odometry"/>
+  <arg name="topic_tf_in"                       default="/test/tf_stamp"/>
+  <arg name="mat_output_path"                   default="$(find calib_odom_tf)/launch/mat.txt"/> 
+
+  <!-- for the control of sampling -->
+  <arg name="cal_sec"                           default="4"/>        <!-- second -->
+  <arg name="filter_angle"                      default="false"/>      
+  <arg name="filter_thresold"                   default="0.2"/>       <!-- rad -->
+  
+  <node pkg="calib_odom_tf" type="calib_odom_tf_node" name="calib_odom_tf_rjp" output="screen">
+    
+    <param name="topic_odom_in"         type="str"          value="$(arg topic_odom_in)"/>
+    <param name="topic_tf_in"           type="str"          value="$(arg topic_tf_in)"/>
+    <param name="mat_output_path"       type="str"          value="$(arg mat_output_path)"/>
+    <param name="cal_sec"               type="int"          value="$(arg cal_sec)"/>
+    <param name="filter_angle"          type="bool"         value="$(arg filter_angle)"/>
+    <param name="filter_thresold"       type="double"       value="$(arg filter_thresold)"/>
+
+  </node>
+</launch>

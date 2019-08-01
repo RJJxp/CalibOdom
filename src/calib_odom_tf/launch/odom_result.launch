@@ -1,0 +1,12 @@
+<launch>
+  <arg name="topic_in"                  default="/raccoon/chassis/odometry"/>
+  <arg name="topic_out"                 default="/test/odometry"/>
+  <arg name="mat_path"                  default="$(find calib_odom_tf)/launch/mat.txt"/>
+
+  <node pkg="calib_odom_tf" type="odom_result_node" name="odom_result_rjp" output="screen">
+    <param name="topic_in"          type="str"          value="$(arg topic_in)"/>
+    <param name="topic_out"         type="str"          value="$(arg topic_out)"/>
+    <param name="mat_path"          type="str"          value="$(arg mat_path)"/>
+  </node>
+
+</launch>
