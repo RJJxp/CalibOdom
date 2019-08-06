@@ -1,0 +1,10 @@
+<launch>
+  <arg name="topic_markers_in"              default="/trajectory_node_list"/>
+  <arg name="topic_marker_out"              default="/trajectory/marker"/>
+
+  <node pkg="calib_odom" type="marker_pub_node" name="marker_pub_rjp" output="screen">
+    <param name="topic_markers_in"     type="str"      value="$(arg topic_markers_in)"/> 
+    <param name="topic_marker_out"     type="str"      value="$(arg topic_marker_out)"/> 
+  </node>
+</launch>
+

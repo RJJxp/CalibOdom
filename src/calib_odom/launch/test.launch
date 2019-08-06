@@ -1,0 +1,28 @@
+<launch>
+  
+
+  <!--<arg name="calib_odom_file"               default="$(find t265_odom_4th)/launch/odometry_cali.json"/>-->
+
+  <arg name="topic_marker_in"               default="/trajectory/marker"/>
+  <arg name="topic_odom_in" 				        default="/raccoon/chassis/odometry"/>
+
+  <arg name="mat_file_path"                 default="$(find calib_odom)/launch/mat.txt"/>
+  <!-- split whole -->
+  <arg name="split_or_whole"                default="whole"/>
+  <!-- linear non_linear -->
+  <arg name="adjust_method"                 default="non_linear"/>
+  <arg name="cal_sec"                       default="5"/>
+  
+  <arg name="split_length"                  default="10"/>
+
+  <node pkg="calib_odom" type="calib_odom_node" name="calib_odom_rjp" output="screen">
+    <param name="topic_marker_in"     type="str"      value="$(arg topic_marker_in)"/>
+    <param name="topic_odom_in"       type="str"      value="$(arg topic_odom_in)" />  
+    <param name="split_or_whole"      type="str"      value="$(arg split_or_whole)"/> 
+    <param name="adjust_method"       type="str"      value="$(arg adjust_method)"/>
+    <param name="cal_sec"             type="int"      value="$(arg cal_sec)"/>
+    <param name="split_length"        type="int"      value="$(arg split_length)"/>
+    <param name="mat_file_path"       type="str"      value="$(arg mat_file_path)"/>
+  </node>
+  
+</launch>
