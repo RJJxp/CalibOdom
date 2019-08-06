@@ -1,7 +1,2 @@
-# fuck me
+# 标定
 
-the result sucks
-
-maybe the model problem
-
-maybe the data source problem
